@@ -93,6 +93,47 @@ gotoxy(x2, y2);
 cprintf("%c", 217);
 }
 
+/* Function to read arrays for merge sort. */
+void sorting::read_mer()
+{
+int row = 8;
+box(2, 1, 75, 24);
+gotoxy(20, 2);
+cout << "Enter elements in First Array = ";
+cin >> n;
+gotoxy(20, 3);
+cout << "Enter elemnets in second Array = ";
+cin >> m;
+gotoxy(24, 22);
+cout << "Note:- Please enter sorted data \n";
+gotoxy(17, 5);
+cout<<"---------------------------------------";
+gotoxy(6, 6);
+cout << " IST Array";
+gotoxy(5, 7);cout << "************";
+for (i = 0; i < n; i++)
+{
+gotoxy(6, row);
+cout << (i+1) << " element = ";
+gotoxy(18, row);
+cin >> array[i];
+row++;
+}
+row = 8;
+gotoxy(25, 6);
+cout << " IIND Array";
+gotoxy(24, 7);
+cout << "*************";
+for (i = 0; i < m; i++)
+{
+gotoxy(25, row);
+cout << (i+1) << " element = ";
+gotoxy(39, row);
+cin >> array1[i];
+row++;
+}
+}
+
 // This is the method of sorting by which the array element
 // are interchanged within its relative values
 void sorting::bub_sort()
