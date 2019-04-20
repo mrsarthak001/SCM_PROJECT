@@ -46,6 +46,25 @@ void quick_sort(int array[], int n, int l, int u);
 void box(int x1, int y1, int x2, int y2);
 };
 
+// This function is used to display the sorted elements
+// from every sorting technique.
+void sorting::display()
+{
+int row =7;
+//
+box(2, 1, 75, 24);
+gotoxy(50, 4);
+cout << " Sorted array \n";
+gotoxy(49, 5);
+cout << "******************";
+for (i = 0; i < n; i++)
+{
+gotoxy(50, row);
+cout << (i+1) << " Element is = ";
+gotoxy(65, row);
+cout << array[i];
+row++;
+}}
 
 //MAIN PROGRAM
 
