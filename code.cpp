@@ -74,6 +74,36 @@ gotoxy(x2, y2);
 cprintf("%c", 217);
 }
 
+// This is the method of sorting by which the array element
+// are interchanged within its relative values
+void sorting::bub_sort()
+{
+int temp, j;
+// Reads the array elements
+read();
+for (i = 0; i < n - 1; i++)
+{
+for (j = i+1; j < n; j++)
+{
+if (array[i] > array[j])
+{
+temp = array[i];
+array[i] = array[j];
+array[j] = temp;
+}
+}
+}
+gotoxy(25, 18);
+textbackground(MAGENTA);
+textcolor(5+143);
+cprintf(" RESULT OF BUBBLE SORT ");
+textbackground(BLACK);
+textcolor(2);
+// Displays the arrays elements
+display();
+getch();
+}
+
 //MAIN PROGRAM
 
 void main()
