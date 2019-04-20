@@ -93,6 +93,28 @@ gotoxy(x2, y2);
 cprintf("%c", 217);
 }
 
+// This function is used to read the values in an array having n elements
+void sorting::read()
+{
+int row = 7;
+box(2, 1, 75, 24);
+gotoxy(24, 2);
+cout << "Enter how many elemnets = ";
+cin >> n;
+gotoxy(13, 4);
+cout << " Input array ";
+gotoxy(12, 5);
+cout<<"****************";
+for (i = 0; i < n; i++)
+{
+gotoxy(10, row);
+cout << " Enter " << (i+1) << " element = ";
+gotoxy(30, row);
+cin >> array[i];
+row++;
+}
+}
+
 // This is the method of sorting by which the array element
 // are interchanged within its relative values
 void sorting::bub_sort()
