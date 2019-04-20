@@ -164,6 +164,48 @@ display();
 getch();
 }
 
+// Function to perfrom the partition in the array for quick sort
+void sorting::partition(int array[], int beg, int end, int *loc)
+{
+int first, last, flag, temp;
+*loc = first = beg;
+last = end;
+flag = 0;
+while (!flag)
+{
+while (array[last] >= array[*loc] && (*loc != last))
+last --;
+if (*loc == last)flag = 1;
+else
+{
+if (array[*loc] > array[last])
+{
+temp = array[*loc];
+array[*loc] = array[last];
+array[last] = temp;
+*loc = last;
+}
+}
+if (!flag)
+{
+while ((array[first] <= array[*loc]) && (*loc != first))
+first++;
+if (*loc == first)
+flag = 1;
+else
+{
+if (array[*loc] <array[first])
+{
+temp = array[*loc];
+array[*loc] = array[first];
+array[first] = temp;
+*loc = first;
+}
+}
+}
+}
+}
+
 // Function which create a heap for heap sort
 void sorting::heap(int array[], int n)
 {
