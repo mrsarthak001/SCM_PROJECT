@@ -104,6 +104,16 @@ display();
 getch();
 }
 
+// Function which create a heap for heap sort
+void sorting::heap(int array[], int n)
+{
+int counter;
+// Bitwise right shift
+counter = (n-1) >> 1;
+for (i = counter; i >= 0; i--)
+below_heap(array, i, n-1);
+}
+
 //MAIN PROGRAM
 
 void main()
