@@ -145,6 +145,35 @@ display();
 getch();
 }
 
+// This function is used to perform the quick sort
+void sorting::Qui_sort()
+{
+// Inputs the array elements for quick sort
+read();
+// For quick sortquick_sort(array, n, 0, n-1);
+gotoxy(25, 18);
+textbackground(MAGENTA);
+textcolor(5+143);
+cprintf(" RESULT OF QUICK SORT ");
+textbackground(BLACK);
+textcolor(2);
+// Displays the sorted elements using the display() function
+display();
+getch();
+}
+// This function performs the partition changing in the array
+// by the quick sort method
+void sorting::quick_sort(int array[], int n, int l, int u)
+{
+int loc;
+if (l < u)
+{
+partition(array, l, u, &loc);
+quick_sort(array, n, l, loc-1);
+quick_sort(array, n, loc+1, u);
+}
+}
+
 // Function which create a heap for heap sort
 void sorting::heap(int array[], int n)
 {
