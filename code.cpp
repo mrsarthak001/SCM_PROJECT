@@ -174,6 +174,37 @@ quick_sort(array, n, loc+1, u);
 }
 }
 
+// Function is used to create lower heap in array for heap sort
+void sorting::below_heap(int array[], int first, int last)
+{
+int count, l_child, r_child, max, temp;
+if (first == 0)
+l_child = 1;
+else
+// Bitwise left shift
+l_child = first << 1;r_child = l_child + 1;
+if (l_child <= last)
+{
+max = array[l_child];
+count = l_child;
+if (r_child <= last)
+{
+if (array[r_child] > max)
+{
+max = array[r_child];
+count = r_child;
+}
+}
+if (array[first] < array[count])
+{
+temp = array[first];
+array[first] = array[count];
+array[count] = temp;
+below_heap(array, count, last);
+}
+}
+}
+
 // Function which create a heap for heap sort
 void sorting::heap(int array[], int n)
 {
