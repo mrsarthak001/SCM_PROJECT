@@ -794,3 +794,46 @@ void grap_screen()
 	delay(2000);
 	closegraph();
 }
+
+
+ //FUNCTION FOR ANIMATED END.
+void end()
+{
+	textmode(1);
+
+	for(int ai=0,aj=0, ak=34,al=33;ai<10,aj<17,ak>10,al>17;ai++,aj++,ak--,al--)
+	{
+		clrscr();
+
+		gotoxy(ai-1, 8);
+		textbackground(4);
+		textcolor(15);
+		cout << "   Thanks   ";
+
+		gotoxy(aj, 16);
+		cout << "   This";
+
+		gotoxy(ak-4, 12);
+		cout << " For using";
+
+		gotoxy(al-2, 20);
+		cout << " Project";
+		delay(50);
+	  }
+										  //end of for loop
+	  gotoxy(9, 9);
+	  cout << " **********************";
+
+	  gotoxy(9, 13);
+	  cout << " **********************";
+
+	  gotoxy(9, 17);
+	  cout << " **********************";
+	  gotoxy(12, 21);
+	  cout << " ***************";
+	  delay(2000);
+
+	  textmode(2);
+	  textbackground(0);
+	  textcolor(5);
+}     // end of function
