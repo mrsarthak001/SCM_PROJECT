@@ -467,7 +467,32 @@ void sorting::Shell_sort()
 }
 
 
+// Function is used to perform insertion sort
+void sorting::Ins_sort()
+{
+	int temp;
 
+	read();
+
+	for (int i = 1; i < n; i++)
+	{
+		temp = array[i];
+		for (int j = i; temp < array[j-1]; j--)
+			array[j] = array[j-1];
+		array[j] = temp;
+	}
+
+	gotoxy(28, 18);
+	textbackground(MAGENTA);
+	textcolor(5+143);
+	cprintf(" RESULT OF INSERTION SORT ");
+	textbackground(BLACK);
+	textcolor(2);
+
+	// Displays the sorted elements
+	display();
+	getch();
+}
 
 // Function is used to perfrom merge sort in two arrays
 void sorting::Mer_sort()
