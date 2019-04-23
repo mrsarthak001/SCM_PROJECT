@@ -465,3 +465,64 @@ void sorting::Shell_sort()
 	display();
 	getch();
 }
+
+
+// MAIN PROGRAM
+void main()
+{
+
+	char choice;
+	sorting  sort;
+	// To display the first screen of sort techniques
+//	grap_screen();
+
+	do
+	{
+		choice = menu();
+
+		clrscr();
+		switch (choice)
+		{
+			case '1':
+
+				sort.bub_sort();
+				break;
+
+			case '2':
+
+				sort.Heap_sort();
+				break;
+
+			case '3':
+
+				sort.Sel_sort();
+				break;
+
+			case '4':
+
+				sort.Ins_sort();
+				break;
+
+			case '5':
+
+				sort.Qui_sort();
+				break;
+
+			case '6':
+
+				sort.Mer_sort();
+				break;
+
+			case '7':
+
+				sort.Shell_sort();
+				break;
+
+			default :
+				end();
+				exit(0);
+
+		}
+	} while (choice != 0);
+
+}
