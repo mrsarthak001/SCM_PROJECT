@@ -651,3 +651,98 @@ void reversevideo(int x, int y, char *str)
 	 textcolor(GREEN);
 	 textbackground(BLACK);
 }
+
+// Function to display the main menu
+
+char menu()
+{
+	clrscr();
+	int i, done;
+
+	sorting sort;
+
+	option a[]=
+			{
+				" Bubble-Sort",
+				"  Heap-sort ",
+				"Selection-Sort",
+				"Insertion-Sort",
+				"  Quick-sort",
+				"  Merge-sort",
+				"  Shell_sort",
+				"     Quit   "
+			};
+
+	clrscr();
+	sort.box(20, 6, 65, 20);
+	sort.box(18, 4, 67, 22);
+	textcolor(5+143);
+	gotoxy(30, 5);
+	textbackground(WHITE);
+	cprintf("S O R T I N G  -  M E N U");
+	textbackground(BLACK);
+	textcolor(22);
+
+	for (i = 1; i < 8; i++)
+		normalvideo(32, i+8, a[i]);
+
+	reversevideo(32, 8, a[0]);
+	reversevideo(32, 8, a[0]);
+
+	i = done = 0;
+//	_setcursortype(_NOCURSOR);
+
+	do
+	{
+		int key = getch();
+
+		switch (key)
+		{
+			case 00:
+
+				key = getch();
+
+				switch (key)
+				{
+					case 72:
+
+						normalvideo(32, i+8, a[i]);
+						i--;
+						if (i == -1)
+							i = 7;
+
+						reversevideo(32, i+8, a[i]);
+						break;
+
+					case 80:
+
+						normalvideo(32, i+8, a[i]);
+						i++;
+
+						if (i == 8)
+							i = 0;
+						break;
+				}
+				break;
+
+			case 13:
+				 done = 1;
+		}
+	} while (!done);
+
+  //	_setcursortype(_NOCURSOR);
+	return(i+49);
+}
+						reversevideo(32, i+8, a[i]);
+						break;
+				}
+				break;
+
+			case 13:
+				 done = 1;
+		}
+	} while (!done);
+
+  //	_setcursortype(_NOCURSOR);
+	return(i+49);
+}
