@@ -467,6 +467,87 @@ void sorting::Shell_sort()
 }
 
 
+
+
+// Function is used to perfrom merge sort in two arrays
+void sorting::Mer_sort()
+{
+	int row = 8;
+	// Reads the elements in different arrays
+	read_mer();
+
+	i = j = 0;
+	int k = 0;
+
+	while ((i < n) && (j < m))
+	{
+
+		if (array[i] < array1[j])
+		{
+
+			final[k] = array[i];
+			k = k + 1;
+			i = i + 1;
+
+		}
+		else
+		{
+
+			final[k] = array1[j];
+			k = k + 1;
+			j = j + 1;
+
+		}
+	}
+
+	while (i < n)
+	{
+		final[k] = array[i];
+		k = k + 1;
+		i = i + 1;
+	}
+
+	while (j < m)
+	{
+		final[k] = array1[j];
+		k = k + 1;
+		j = j + 1;
+	}
+
+	gotoxy(28, 18);
+	textbackground(MAGENTA);
+	textcolor(5+143);
+	cprintf(" RESULT OF MERGE SORT");
+	textbackground(BLACK);
+	textcolor(2);
+	gotoxy(50, 6);
+	cout << " Sorted array  \n";
+	gotoxy(49, 7);
+	cout << "******************";
+	int t = m + n;
+
+	for (i = 0; i < t; i++)
+	{
+		gotoxy(50, row);
+		cout << (i+1) << " Element is = ";
+		gotoxy(65, row);
+		cout << final[i];
+		row++;
+	}
+	getch();
+
+}
+
+
+typedef char option[15];
+
+char menu();
+
+void grap_screen();
+void end();
+
+
+
 // MAIN PROGRAM
 void main()
 {
@@ -526,3 +607,4 @@ void main()
 	} while (choice != 0);
 
 }
+
