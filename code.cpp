@@ -467,9 +467,373 @@ void sorting::Shell_sort()
 }
 
 
+// Function is used to perform insertion sort
+void sorting::Ins_sort()
+{
+	int temp;
+
+	read();
+
+	for (int i = 1; i < n; i++)
+	{
+		temp = array[i];
+		for (int j = i; temp < array[j-1]; j--)
+			array[j] = array[j-1];
+		array[j] = temp;
+	}
+
+	gotoxy(28, 18);
+	textbackground(MAGENTA);
+	textcolor(5+143);
+	cprintf(" RESULT OF INSERTION SORT ");
+	textbackground(BLACK);
+	textcolor(2);
+
+	// Displays the sorted elements
+	display();
+	getch();
+}
+
+// Function is used to perfrom merge sort in two arrays
+void sorting::Mer_sort()
+{
+	int row = 8;
+	// Reads the elements in different arrays
+	read_mer();
+
+	i = j = 0;
+	int k = 0;
+
+	while ((i < n) && (j < m))
+	{
+
+		if (array[i] < array1[j])
+		{
+
+			final[k] = array[i];
+			k = k + 1;
+			i = i + 1;
+
+		}
+		else
+		{
+
+			final[k] = array1[j];
+			k = k + 1;
+			j = j + 1;
+
+		}
+	}
+
+	while (i < n)
+	{
+		final[k] = array[i];
+		k = k + 1;
+		i = i + 1;
+	}
+
+	while (j < m)
+	{
+		final[k] = array1[j];
+		k = k + 1;
+		j = j + 1;
+	}
+
+	gotoxy(28, 18);
+	textbackground(MAGENTA);
+	textcolor(5+143);
+	cprintf(" RESULT OF MERGE SORT");
+	textbackground(BLACK);
+	textcolor(2);
+	gotoxy(50, 6);
+	cout << " Sorted array  \n";
+	gotoxy(49, 7);
+	cout << "******************";
+	int t = m + n;
+
+	for (i = 0; i < t; i++)
+	{
+		gotoxy(50, row);
+		cout << (i+1) << " Element is = ";
+		gotoxy(65, row);
+		cout << final[i];
+		row++;
+	}
+	getch();
+
+}
+
+
 typedef char option[15];
 
 char menu();
 
 void grap_screen();
 void end();
+
+
+
+// MAIN PROGRAM
+void main()
+{
+
+	char choice;
+	sorting  sort;
+	// To display the first screen of sort techniques
+//	grap_screen();
+
+	do
+	{
+		choice = menu();
+
+		clrscr();
+		switch (choice)
+		{
+			case '1':
+
+				sort.bub_sort();
+				break;
+
+			case '2':
+
+				sort.Heap_sort();
+				break;
+
+			case '3':
+
+				sort.Sel_sort();
+				break;
+
+			case '4':
+
+				sort.Ins_sort();
+				break;
+
+			case '5':
+
+				sort.Qui_sort();
+				break;
+
+			case '6':
+
+				sort.Mer_sort();
+				break;
+
+			case '7':
+
+				sort.Shell_sort();
+				break;
+
+			default :
+				end();
+				exit(0);
+
+		}
+	} while (choice != 0);
+
+}
+
+// Function used to do screening
+void normalvideo(int x, int y, char *str)
+{
+   gotoxy(x, y);
+   cprintf("%s", str);
+}
+
+// Function to reverse the video
+void reversevideo(int x, int y, char *str)
+{
+	 textcolor(RED);
+	 textbackground(WHITE);
+
+	 gotoxy(x, y);
+	 cprintf("%s", str);
+	 textcolor(GREEN);
+	 textbackground(BLACK);
+}
+
+// Function to display the main menu
+
+char menu()
+{
+	clrscr();
+	int i, done;
+
+	sorting sort;
+
+	option a[]=
+			{
+				" Bubble-Sort",
+				"  Heap-sort ",
+				"Selection-Sort",
+				"Insertion-Sort",
+				"  Quick-sort",
+				"  Merge-sort",
+				"  Shell_sort",
+				"     Quit   "
+			};
+
+	
+	
+	clrscr();
+	sort.box(20, 6, 65, 20);
+	sort.box(18, 4, 67, 22);
+	textcolor(5+143);
+	gotoxy(30, 5);
+	textbackground(WHITE);
+	cprintf("S O R T I N G  -  M E N U");
+	textbackground(BLACK);
+	textcolor(22);
+
+	for (i = 1; i < 8; i++)
+		normalvideo(32, i+8, a[i]);
+
+	reversevideo(32, 8, a[0]);
+	reversevideo(32, 8, a[0]);
+
+	i = done = 0;
+//	_setcursortype(_NOCURSOR);
+
+	do
+	{
+		int key = getch();
+
+		switch (key)
+		{
+			case 00:
+
+				key = getch();
+
+				switch (key)
+				{
+					case 72:
+
+						normalvideo(32, i+8, a[i]);
+						i--;
+						if (i == -1)
+							i = 7;
+
+						reversevideo(32, i+8, a[i]);
+						break;
+
+					case 80:
+
+						normalvideo(32, i+8, a[i]);
+						i++;
+
+						if (i == 8)
+							i = 0;
+						break;
+				}
+				break;
+
+			case 13:
+				 done = 1;
+		}
+	} while (!done);
+
+  //	_setcursortype(_NOCURSOR);
+	return(i+49);
+}
+						reversevideo(32, i+8, a[i]);
+						break;
+				}
+				break;
+
+			case 13:
+				 done = 1;
+		}
+	} while (!done);
+
+  //	_setcursortype(_NOCURSOR);
+	return(i+49);
+}
+
+
+
+// Function to display the front screen of sorting technique
+void grap_screen()
+{
+	int driver,mode;
+	driver = DETECT;
+
+	initgraph(&driver, &mode,"c:\tc\big");
+	setbkcolor(10);
+	setcolor(5); //set the text color
+
+	//set default font,horizontal direction,size of text
+	settextstyle(0, 0, 7);
+	outtextxy(50, 100, "Sorting");
+	outtextxy(50, 300, "Techniques");
+
+	delay(2000);
+	closegraph();
+
+	initgraph(&driver, &mode, "c:\tc\big");
+	setbkcolor(10);
+
+	setcolor(1); //set background color to blude
+	settextstyle(0, 0, 7);
+
+	outtextxy(50, 100, "DEVELOPED");
+	outtextxy(50, 300, "   BY ");
+
+	delay(2000);
+	closegraph();
+
+	initgraph(&driver, &mode, "c:\tc\bin");
+	setbkcolor(10);
+
+	setcolor(4); //set background color to green
+	settextstyle(0, 0, 5);
+
+	outtextxy(30, 100, "Kshitiz" );
+	outtextxy(120, 200, "      ");
+	outtextxy(200, 300, "");
+
+	delay(2000);
+	closegraph();
+}
+
+
+ //FUNCTION FOR ANIMATED END.
+void end()
+{
+	textmode(1);
+
+	for(int ai=0,aj=0, ak=34,al=33;ai<10,aj<17,ak>10,al>17;ai++,aj++,ak--,al--)
+	{
+		clrscr();
+
+		gotoxy(ai-1, 8);
+		textbackground(4);
+		textcolor(15);
+		cout << "   Thanks   ";
+
+		gotoxy(aj, 16);
+		cout << "   This";
+
+		gotoxy(ak-4, 12);
+		cout << " For using";
+
+		gotoxy(al-2, 20);
+		cout << " Project";
+		delay(50);
+	  }
+										  //end of for loop
+	  gotoxy(9, 9);
+	  cout << " **********************";
+
+	  gotoxy(9, 13);
+	  cout << " **********************";
+
+	  gotoxy(9, 17);
+	  cout << " **********************";
+	  gotoxy(12, 21);
+	  cout << " ***************";
+	  delay(2000);
+
+	  textmode(2);
+	  textbackground(0);
+	  textcolor(5);
+}     // end of function
