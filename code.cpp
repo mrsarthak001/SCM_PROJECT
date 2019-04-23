@@ -466,6 +466,7 @@ void sorting::Shell_sort()
 	getch();
 }
 
+
 // Function is used to perfrom merge sort in two arrays
 void sorting::Mer_sort()
 {
@@ -534,3 +535,12 @@ void sorting::Mer_sort()
 	getch();
 
 }
+
+
+typedef char option[15];
+
+char menu();
+
+void grap_screen();
+void end();
+
