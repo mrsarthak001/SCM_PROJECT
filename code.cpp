@@ -465,3 +465,11 @@ void sorting::Shell_sort()
 	display();
 	getch();
 }
+
+
+typedef char option[15];
+
+char menu();
+
+void grap_screen();
+void end();
