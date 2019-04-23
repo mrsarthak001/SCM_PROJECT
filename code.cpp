@@ -467,6 +467,33 @@ void sorting::Shell_sort()
 }
 
 
+// Function is used to perform insertion sort
+void sorting::Ins_sort()
+{
+	int temp;
+
+	read();
+
+	for (int i = 1; i < n; i++)
+	{
+		temp = array[i];
+		for (int j = i; temp < array[j-1]; j--)
+			array[j] = array[j-1];
+		array[j] = temp;
+	}
+
+	gotoxy(28, 18);
+	textbackground(MAGENTA);
+	textcolor(5+143);
+	cprintf(" RESULT OF INSERTION SORT ");
+	textbackground(BLACK);
+	textcolor(2);
+
+	// Displays the sorted elements
+	display();
+	getch();
+}
+
 // Function is used to perfrom merge sort in two arrays
 void sorting::Mer_sort()
 {
@@ -544,3 +571,83 @@ char menu();
 void grap_screen();
 void end();
 
+
+
+// MAIN PROGRAM
+void main()
+{
+
+	char choice;
+	sorting  sort;
+	// To display the first screen of sort techniques
+//	grap_screen();
+
+	do
+	{
+		choice = menu();
+
+		clrscr();
+		switch (choice)
+		{
+			case '1':
+
+				sort.bub_sort();
+				break;
+
+			case '2':
+
+				sort.Heap_sort();
+				break;
+
+			case '3':
+
+				sort.Sel_sort();
+				break;
+
+			case '4':
+
+				sort.Ins_sort();
+				break;
+
+			case '5':
+
+				sort.Qui_sort();
+				break;
+
+			case '6':
+
+				sort.Mer_sort();
+				break;
+
+			case '7':
+
+				sort.Shell_sort();
+				break;
+
+			default :
+				end();
+				exit(0);
+
+		}
+	} while (choice != 0);
+
+}
+
+// Function used to do screening
+void normalvideo(int x, int y, char *str)
+{
+   gotoxy(x, y);
+   cprintf("%s", str);
+}
+
+// Function to reverse the video
+void reversevideo(int x, int y, char *str)
+{
+	 textcolor(RED);
+	 textbackground(WHITE);
+
+	 gotoxy(x, y);
+	 cprintf("%s", str);
+	 textcolor(GREEN);
+	 textbackground(BLACK);
+}
