@@ -633,3 +633,21 @@ void main()
 
 }
 
+// Function used to do screening
+void normalvideo(int x, int y, char *str)
+{
+   gotoxy(x, y);
+   cprintf("%s", str);
+}
+
+// Function to reverse the video
+void reversevideo(int x, int y, char *str)
+{
+	 textcolor(RED);
+	 textbackground(WHITE);
+
+	 gotoxy(x, y);
+	 cprintf("%s", str);
+	 textcolor(GREEN);
+	 textbackground(BLACK);
+}
