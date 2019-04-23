@@ -673,6 +673,8 @@ char menu()
 				"     Quit   "
 			};
 
+	
+	
 	clrscr();
 	sort.box(20, 6, 65, 20);
 	sort.box(18, 4, 67, 22);
@@ -745,4 +747,50 @@ char menu()
 
   //	_setcursortype(_NOCURSOR);
 	return(i+49);
+}
+
+
+
+// Function to display the front screen of sorting technique
+void grap_screen()
+{
+	int driver,mode;
+	driver = DETECT;
+
+	initgraph(&driver, &mode,"c:\tc\big");
+	setbkcolor(10);
+	setcolor(5); //set the text color
+
+	//set default font,horizontal direction,size of text
+	settextstyle(0, 0, 7);
+	outtextxy(50, 100, "Sorting");
+	outtextxy(50, 300, "Techniques");
+
+	delay(2000);
+	closegraph();
+
+	initgraph(&driver, &mode, "c:\tc\big");
+	setbkcolor(10);
+
+	setcolor(1); //set background color to blude
+	settextstyle(0, 0, 7);
+
+	outtextxy(50, 100, "DEVELOPED");
+	outtextxy(50, 300, "   BY ");
+
+	delay(2000);
+	closegraph();
+
+	initgraph(&driver, &mode, "c:\tc\bin");
+	setbkcolor(10);
+
+	setcolor(4); //set background color to green
+	settextstyle(0, 0, 5);
+
+	outtextxy(30, 100, "Kshitiz" );
+	outtextxy(120, 200, "      ");
+	outtextxy(200, 300, "");
+
+	delay(2000);
+	closegraph();
 }
