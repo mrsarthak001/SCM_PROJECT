@@ -30,6 +30,7 @@ The following is a step-by-step example of this workflow.
 
 
 FORKING v/s CLONING
+
 It's important to note that "forked" repositories and "forking" are not special operations. Forked repositories are created
 using the standard git clone command. Forked repositories are generally "server-side clones" and usually managed and hosted by
 a 3rd party Git service like Bitbucket. There is no unique Git command to create forked repositories. A clone operation is
