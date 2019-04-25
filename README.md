@@ -6,7 +6,13 @@ Here the purpose is to make a program consisting of Sorting Techniques using c++
 Each of the contributor is required to push their changes to the allocated branches so that they can be viewed seperately.
 Technique of Forking is used to maintain the repository so that each contributor are able to get their private workspace.
 
-The main advantage of the Forking Workflow is that contributions can be integrated without the need for everybody to push to a single central repository. Developers push to their own server-side repositories, and only the project maintainer can push to the official repository. This allows the maintainer to accept commits from any developer without giving them write access to the official codebase.
+The main advantage of the Forking Workflow is that contributions can be integrated without the need for everybody to push to a
+single central repository. Developers push to their own server-side repositories, and only the project maintainer can push to
+the official repository. This allows the maintainer to accept commits from any developer without giving them write access to
+the official codebase.
+
+
+
 
 The following is a step-by-step example of this workflow.
 
@@ -21,3 +27,10 @@ The following is a step-by-step example of this workflow.
 7. The branch gets pushed to the developer's own server-side copy.
 8. The developer opens a pull request from the new branch to the 'official' repository.
 9. The pull request gets approved for merge and is merged into the original server-side repository
+
+
+FORKING v/s CLONING
+It's important to note that "forked" repositories and "forking" are not special operations. Forked repositories are created
+using the standard git clone command. Forked repositories are generally "server-side clones" and usually managed and hosted by
+a 3rd party Git service like Bitbucket. There is no unique Git command to create forked repositories. A clone operation is
+essentially a copy of a repository and its history. 
