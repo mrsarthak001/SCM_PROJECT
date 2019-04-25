@@ -80,6 +80,7 @@ void sorting::box(int x1, int y1, int x2, int y2)
 		cprintf("%c", 179);
 	}
 
+	
 	gotoxy(x1, y1);
 	cprintf("%c", 218);
 	gotoxy(x1, y2);
@@ -89,6 +90,7 @@ void sorting::box(int x1, int y1, int x2, int y2)
 	gotoxy(x2, y2);
 	cprintf("%c", 217);
 }
+
 
 // This function is used to read the values in an array having n elements
 
