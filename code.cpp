@@ -793,4 +793,5 @@ void grap_screen()
 
 	delay(2000);
 	closegraph();
+	
 }
